@@ -1,0 +1,17 @@
+h1 {
+  font-size: 2em;
+}
+
+.navbar {
+  background-color: purple;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-brand, .label {
+  color: white;
+}
