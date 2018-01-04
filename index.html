@@ -26,6 +26,59 @@
 					</div>
 				</div>
 			</div>
+
+		<!--MODAL DE REGISTRO-->
+    	<div class="modal" id="regismodal" tabindex="-1" role="dialog">
+  			<div class="modal-dialog" role="document">
+    			<div class="modal-content">
+      			<div class="modal-header">
+					    <div class="row">
+					    	<div class="col-sm-12 col-md-12">
+									<img src="assets/img/logo-black.svg" id="logoregmod">	
+									<h5 class="modal-title">Register</h5>
+					    	</div>
+					    </div>	
+        			
+        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          		<span aria-hidden="true">&times;</span>
+        			</button>
+      			</div>
+      		<div class="modal-body">
+        	  <div class="row">
+        	  	<div class="col-md-12">
+                <form>
+  								<div class="form-group">
+   								  <label for="exampleInputname">User Name</label>
+   								  <input type="name" class="form-control" id="inputname" aria-describedby="namehelp" placeholder="Write here your user name without spaces or symbols">
+    							</div>
+                <div class="form-group">
+                  <label for="exampleInput">Located in</label>
+                  <input type="location" class="form-control" id="exampleInputlocation" placeholder="Where do you live?">
+                </div>
+                
+ 	 								<div class="form-group" id="uploadphoto">
+    							<label for="exampleFormControlFile1">Upload your profile picture</label>
+    							<input type="file" class="form-control-file" id="exampleFormControlFile1">
+  							</div>
+  							<button type="submit" class="btn" id="reg-submit">Submit</button>
+              
+
+							</form>
+        	  </div>
+
+        	</div>
+
+      		</div>
+      		<div class="modal-footer">
+        			<button type="button" class="btn" id="reg-save">Save changes</button>
+        			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<!--FIN MODAL DE REGISTRO-->	
+		
+		<!--CONTAINER ONE-->
 		<div class="container-fluid" id="one">
 			<div class="row">
 				<div id="top" class="col-sm-4 offset-sm-4 col-md-2 offset-md-9">

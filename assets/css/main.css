@@ -97,6 +97,26 @@
   font-size: 12px;
 }
 
+/*
+* Modal de Registro
+*/
+
+
+#logoregmod{
+  height: 10vh;
+  width: auto;
+}
+
+#reg-submit, #reg-save {
+  background-color:#41B6AD;
+  color: #F6F1EB;
+  font-weight: 500; 
+}
+
+/*
+* FIN Modal de Registro
+*/
+
 
 
 /*
