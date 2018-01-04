@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  	<title>Fickeroo</title>
+  	<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400,500,700,800,900" rel="stylesheet"> 
+  	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+  	 <link rel="stylesheet" href="assets/css/main.css">
+	</head>
+	<body>
+
+		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<img src="assets/img/logo-black.svg" id="logologinmod">
+					<h1>Login to Your Account</h1><br>
+				  <form>
+					<input type="text" name="user" placeholder="Username">
+					<input type="password" name="pass" placeholder="Password">
+					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+				  </form>
+					
+				  <div class="login-help">
+					<a href="#">Register</a> - <a href="#">Forgot Password</a>
+				  </div>
+				</div>
+			</div>
+		  </div>
+    
+
+		<div class="container-fluid" id="one">
+			<div class="row">
+				<div id="top" class="col-sm-4 offset-sm-4 col-md-2 offset-md-9">
+					<button id="login-btn" data-toggle="modal" data-target="#login-modal"><a href="#">LOG IN</a></button>
+				</div>
+			</div>
+			<div class="row">
+				<div id="caja-logo" class="col-sm-10 offset-sm-1 col-md-6 offset-md-3 ">
+					<img id="mainlogo" class="img-responsive" src="assets/img/logo-main.svg">
+				</div>
+			</div>
+			<div class="row" id="main-reg-box">
+				<div  class="col-md-2 offset-md-4">
+					<input type="input" name="Email" placeholder="Email">
+				</div>
+				<div	class="col-md-2">
+					<input type="input" name="Password" placeholder="Password">
+				</div>
+			</div>
+			<div class="row" id="caja-btn-reg">
+				<div class="col-sm-4 offset-sm-4 col-md-2 offset-md-5">
+					<button id="reg-btn"><a href="#">REGISTER</a></button>
+				</div>	
+
+<!--JS BOOTSTRAP -->		
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	</body>
+	</html>
