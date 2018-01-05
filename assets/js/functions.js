@@ -109,12 +109,14 @@ var deleteAlerts = (function(element) {
 });
 
 var getRealTimeUpdates = (function() {
-  var docRef = firestore.doc("users/B9f70iGQN624sS9AwnmL");
-  var postBtn = $("#comm-btn");
+  var user = firebase.auth().currentUser.displayName;
+  var docRef = firestore.doc("users/"+user);
+  var postContainer = $("#comment-cont");
   docRef.onSnapshot(function(doc) {
     if (doc && doc.exists) {
       var myData = doc.data();
-      $(postBtn).append(`<p>`+myData.post+`</p>`);
+      console.log(myData.post);
+      $("#comment-cont").append(`<p>`+myData.post+`</p>`);
     }
   });
 });
@@ -136,8 +138,7 @@ var posting = (function() {
   });
   var post = textAreaPost.val();
     docRef.set({
-      when: new Date(), 
-      what: post
+      post: post
     }, {merge:true}).then(function() {
       console.log("Saved");
     }).catch(function(error) {
