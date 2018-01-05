@@ -65,22 +65,78 @@ var register = (function() {
   var valRegName = $("#input-name").val();
   var valRegLocation = $("#input-location").val();
   firebase.auth().createUserWithEmailAndPassword(valRegMail, valRegPass)
-    .then(function() {
+    .then(function(user) {
+      $("input").val("");
       function saveData() {
         console.log("I am going to save "+valRegMail+" to Firestore");
-        firestore.collection("users").add({
+        user.updateProfile({
+          displayName: valRegName
+        });
+        firestore.collection("users").doc(valRegName).set({
           email: valRegMail,
           name: valRegName,
-          location: valRegLocation,
-          picture: valRegPic
+          location: valRegLocation
         }).then(function(docRef) {
-          console.log("Document writer with ID: " + docRef.id);
+          console.log("Document writer with ID: " + valRegName);
         }).catch(function(error) {
           console.log("Got an error " + error);
         });
       };
       saveData();
       verify();
+      $("#regismodal").modal("toggle");
+      $("#loader").fadeIn();
+      $("body").append(`<!--INICIO CONTAINER TWO--> 
+    <div class="container-fluid" id="two">
+        <!--CARROUSEL TOP DE IMAGENES-->
+     
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+        
+            <div class="carousel-inner">
+            
+                <div id="img1" class="carousel-item active carrousel-box" >
+                <img  class="d-block w-100" src="assets/img/Lets-meet.jpg" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h5>Lets Meet! 🟊</h5>
+                        <p>Check our next meeting event. It could be a great chance to exchange with pro fickers and get their advices, learn and meet people with your same interests. <a href="#">Read more...</a></p>
+                        </div>
+                </div>
+            
+                <div id="img2" class="carousel-item  carrousel-box">
+                <img  class="d-block w-100" src="assets/img/texture-1362879_1920.jpg" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Inspire</h5>
+                        <p>Sharing your tips with beginners is a great way to upgrade your own writting level with your feedback, don't lose the opportunity! </p>
+                    </div>
+                </div>
+            
+                <div id="img3" class="carousel-item  carrousel-box">
+                <img  class="d-block w-100" src="assets/img/japanese-garden-2898777_1920.jpg" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                        <h5>Highlights</h5>
+                        <p>"Some beautiful paths can't be discovered, without getting lost" - Erol Ozan</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+            </div>
+        
+<!--FIN CARROUSEL DE IMAGENES-->`)
+      setTimeout(function(){
+        $("#loader").fadeOut();
+      },3000);
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
@@ -98,4 +154,34 @@ var deleteAlerts = (function(element) {
   $(element).keyup(function() {
     $(".alert").remove();
   })
+});
+
+var getRealTimeUpdates = (function() {
+  var docRef = firestore.doc("users/B9f70iGQN624sS9AwnmL");
+  var postBtn = $("#comm-btn");
+  docRef.onSnapshot(function(doc) {
+    if (doc && doc.exists) {
+      var myData = doc.data();
+      $(postBtn).append(`<p>`+myData.post+`</p>`);
+    }
+  });
+});
+
+var posting = (function() {
+  var counter = 0;
+  var user = firebase.auth().currentUser.displayName;
+  var textAreaPost = $("#wannabecomment");
+  var postContainer = $("#comment-cont");
+  var postBtn = $("#comm-btn");
+  var docRef = firestore.doc("users/"+user+"/post"+counter+"/"+counter);
+  var post = textAreaPost.val();
+    docRef.set({
+      when: new Date(), 
+      what: post
+    }, {merge:true}).then(function() {
+      counter++;
+      console.log("Saved");
+    }).catch(function(error) {
+      console.log(error);
+    });
 });
