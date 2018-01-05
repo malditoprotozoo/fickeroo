@@ -15,7 +15,7 @@ $(document).ready(function() {
   setTimeout(function(){
     $("#loader").fadeOut();
     $("#one").fadeIn();
-  },1000);
+  },4000);
   firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
     if (user) {
