@@ -9,16 +9,20 @@
   	<link rel="stylesheet" href="assets/css/main.css">
 	</head>
 	<body>
+		<!-- Loader -->
+			<div id="loader">
+      	<img id="logo-loader" src="assets/img/logo-main.svg">
+    	</div>
 		<!-- Modal Login -->
 			<div class="modal fade" id="login-modal" tabindex="-1" role="dialog">
 	    	<div class="modal-dialog" role="document">
 					<div class="modal-content">
-						<img src="assets/img/logo-black.svg" id="logologinmod">
+						<img src="assets/img/logo-black.svg" id="logologinmod" alt="logo">
 						<h1>Login to Your Account</h1><br>
 					  <form>
-							<input id="login-username" type="text" name="user" placeholder="Username">
+							<input id="login-mail" type="text" name="user" placeholder="E-Mail">
 							<input id="login-pass" type="password" name="pass" placeholder="Password">
-							<input type="submit" name="login" class="login loginmodal-submit" value="Login">
+							<button type="submit" name="login" class="login loginmodal-submit" value="Login">Login</button>
 					  </form>
 					  <div class="login-help">
 							<a href="#">Register</a> - <a href="#">Forgot Password</a>
@@ -26,89 +30,78 @@
 					</div>
 				</div>
 			</div>
+		<!-- Fin Modal Login -->
 
 		<!--MODAL DE REGISTRO-->
-    	<div class="modal" id="regismodal" tabindex="-1" role="dialog">
+    	<div class="modal fade" id="regismodal" tabindex="-1" role="dialog">
   			<div class="modal-dialog" role="document">
     			<div class="modal-content">
       			<div class="modal-header">
 					    <div class="row">
 					    	<div class="col-sm-12 col-md-12">
-									<img src="assets/img/logo-black.svg" id="logoregmod">	
+									<img src="assets/img/logo-black.svg" id="logoregmod" alt="logo">	
 									<h5 class="modal-title">Register</h5>
 					    	</div>
-					    </div>	
-        			
-        			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          		<span aria-hidden="true">&times;</span>
-        			</button>
+					    </div>
       			</div>
-      		<div class="modal-body">
-        	  <div class="row">
-        	  	<div class="col-md-12">
-                <form>
-  								<div class="form-group">
-   								  <label for="exampleInputname">User Name</label>
-   								  <input type="name" class="form-control" id="inputname" aria-describedby="namehelp" placeholder="Write here your user name without spaces or symbols">
-    							</div>
-                <div class="form-group">
-                  <label for="exampleInput">Located in</label>
-                  <input type="location" class="form-control" id="exampleInputlocation" placeholder="Where do you live?">
-                </div>
-                
- 	 								<div class="form-group" id="uploadphoto">
-    							<label for="exampleFormControlFile1">Upload your profile picture</label>
-    							<input type="file" class="form-control-file" id="exampleFormControlFile1">
-  							</div>
-  							<button type="submit" class="btn" id="reg-submit">Submit</button>
-              
-
-							</form>
-        	  </div>
-
-        	</div>
-
+	      		<div class="modal-body">
+	        	  <div class="row">
+	        	  	<div class="col-md-12">
+	                <form>
+	   								<input id="input-name" type="text" class="form-control" aria-describedby="name" placeholder="Username">
+	   								<input id="input-location" type="text" class="form-control" placeholder="City, Country">
+	    						</form>
+	  						</div>
+	        	  </div>
+	        	</div>
+	        	<div class="modal-footer">
+        			<button id="reg-save" type="button" class="btn">Save changes</button>
+        			<div class="login-help">
+								<a href="#">Register</a> - <a href="#">Forgot Password</a>
+					  	</div>
+      			</div>
       		</div>
-      		<div class="modal-footer">
-        			<button type="button" class="btn" id="reg-save">Save changes</button>
-        			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+    		</div>
+  		</div>
 		<!--FIN MODAL DE REGISTRO-->	
 		
 		<!--CONTAINER ONE-->
-		<div class="container-fluid" id="one">
-			<div class="row">
-				<div id="top" class="col-sm-4 offset-sm-4 col-md-2 offset-md-9">
-					<button id="login-btn" data-toggle="modal" data-target="#login-modal"><a href="#">LOG IN</a></button>
+			<div class="container-fluid" id="one">
+				<div class="row">
+					<div id="top" class="col-sm">
+						<button type="button" id="login-btn" data-toggle="modal" data-target="#login-modal" class="btn">LOG IN</button>
+					</div>
+				</div>
+				<div id="container-centered">
+					<div class="row">
+						<div id="caja-logo" class="col-sm">
+							<img id="mainlogo" src="assets/img/logo-main.svg" alt="logo">
+							<img id="main-isotype" src="assets/img/isotype.svg" alt="">
+						</div>
+					</div>
+					<div class="row" id="main-reg-box">
+						<div  class="col-sm">
+							<input id="register-mail" type="text" name="Email" placeholder="Email">
+						</div>
+						<div	class="col-sm">
+							<input id="register-pass" type="password" name="Password" placeholder="Password">
+						</div>
+					</div>
+					<div class="row" id="caja-btn-reg">
+						<div id="content-btn-reg" class="col-sm">
+							<button type="button" id="reg-btn" class="btn" data-target="#regismodal">REGISTER</button>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div id="caja-logo" class="col-sm-10 offset-sm-1 col-md-6 offset-md-3 ">
-					<img id="mainlogo" class="img-responsive" src="assets/img/logo-main.svg">
-				</div>
-			</div>
-			<div class="row" id="main-reg-box">
-				<div  class="col-md-2 offset-md-4">
-					<input type="input" name="Email" placeholder="Email">
-				</div>
-				<div	class="col-md-2">
-					<input type="input" name="Password" placeholder="Password">
-				</div>
-			</div>
-			<div class="row" id="caja-btn-reg">
-				<div class="col-sm-4 offset-sm-4 col-md-2 offset-md-5">
-					<button id="reg-btn"><a href="#">REGISTER</a></button>
-				</div>	
+		<script src="assets/js/jquery-3.2.1.js"></script>
 		<!-- JS Firebase & Firestore -->
 			<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 			<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-firestore.js"></script>
 		<!--JS BOOTSTRAP -->		
-			<script src="assets/js/jquery-3.2.1.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+			<script src="assets/js/functions.js"></script>
 		<script src="assets/js/app.js"></script>
 	</body>
 </html>
