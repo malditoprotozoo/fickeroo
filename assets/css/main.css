@@ -344,14 +344,26 @@
 } 
 /*FIN CARROUSEL DE IMAGENES*/
 /*NAVBAR */ 
-/*FIN NAVBAR*/
 #menu{
+  height: 20vh;
   font-weight: 400;
-  font-size: 2em;
+  font-size: 2.5em;
+  background-color: #41B6AD;
  }
 #menu a{
-  color: #41B6AD ;
+  margin-top:5vh;
+  color: #FFF ;
 }
+#menu a:hover{
+  font-weight: 700;
+}
+#logo-nav{
+  margin-top:4vh;
+  height: 10vh;
+  width:auto; 
+}
+/*FIN NAVBAR*/
+
 /*CSS PARA OWN TIMELINE (ME)*/
 #textarabox{
   height: 20vh;
@@ -375,18 +387,23 @@
 /*Fin de ME space*/
 /*Profile Space*/
 #profilepic{
-  height: 20vh;
+  height: 40vh;
   width: 100%;
 }
 .img-shape{
-  height: 20vh;
-  width: 20vh;
+  margin-top:5vh;
+  height: 30vh;
+  width: 30vh;
   border-radius:50%;
   object-fit: cover;
   object-position:center;
 }
+#username-box p, #location-box p, #rating-box p{
+  font-size: 1.5em;
+  font-weight: 300;
+}
 
-* FICshare space */
+/* FICshare space */
 #fic-card-form{
   height: 25vh;
 /*  border: 3px solid #41B6AD;*/

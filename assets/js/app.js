@@ -67,6 +67,9 @@ $(document).ready(function() {
         <!--FIN CARROUSEL DE IMAGENES-->
         <!-- NAVEGADOR DE PERFIL -->
                 <ul id="menu" class="nav justify-content-center">
+                    <li class="nav-item">
+                    <img id="logo-nav" src="assets/img/logo-white.svg">
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="#">NEWS</a>
                 </li>
@@ -74,49 +77,54 @@ $(document).ready(function() {
                     <a class="nav-link" href="#">Friends</a>
                 </li>
                 <li class="nav-item">
-                 <a class="nav-link" href="#">Media</a>
+                 <a class="nav-link" href="#">FICS!</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link " href="#">Messages</a>
-                </li>
-                <li class="nav-item">
+                            <li class="nav-item">
                 <a class="nav-link " href="#">Me</a>
                 </li>
                 </ul>
         <!--FIN NAVEGADOR DE PERFIL-->
         <!--CONTENEDOR DE CONTENIDO DINAMICO SEGÚN NAVEGADOR-->
-                    <div class="container-fluid" id="inner-three">
-        <!-- Después sacar ♥ para pasar a js-->
-        <!-- comments area --> 
-        <div class="row">
-                <div  class="col-sm-12 col-md-8">
-                    <div class="row">
-                        <div id="textareabox" class="col-md-10 offset-md-1">
-                          <textarea id="wannabecomment" class="form-control" placeholder="Do you want to say something?"></textarea>
-                        </div>
-                        <div class="col-md-2 offset-md-9">  
-                          <button id="comm-btn" onclick="posting()" class="button">Post it!</button>    
-                        </div>    
-                        <hr>
-                        <div id="comment-cont" class="col-md-10 offset-md-1">
-                            
-                    </div>    
-                </div>
-                <!--fin commentsarea>
-                <!-- Espacio Profile --> 
-                <div class="col-sm-12 col-md-4">
-                    <div class="row">
-                     <div id="profile-pic" class="col-md-4 offset-md-4">
-                         <img src="assets/img/path.jpg" class="image-responsive img-shape">
-                     </div>
-                     <div id="username-box" class="col-md-8 offset-md-2">
-                     <div id="location-box" class="col-md-8 offset-md-2">
-                     </div>
-                    </div>    
-                </div>    
-              </div>
+                    <div class="container-fluid" id="three">
+                      <div  id="cajadeabajo" class="row">
+     <!--Este contiene los dinamicos-->        
+        <div  id="cajaizquierda" class="col-sm-12 col-md-8">
+         <!-- comments area --> 
+          <div class="row">
+            <div id="textareabox" class="col-md-10 offset-md-1">
+              <textarea id="wannabecomment" class="form-control" placeholder="Do you want to say something?"></textarea>
             </div>
-        </div>    
+            <div class="col-md-2 offset-md-9">  
+              <button id="comm-btn" onclick="posting()" class="button">Post it!</button>    
+           </div>    
+                        <hr>
+  <!--Contenedor de comentarios-->                      
+          <div id="comment-cont" class="col-md-10 offset-md-1">
+                            
+          </div>  
+         </div>
+        </div>
+  <!-- Ese no cambia-->     
+        <div id="profile-box" class="col-sm-12 col-md-4">
+          <div class="row">
+           <div id="profile-pic" class="col-md-4 offset-md-4">
+             <img src="assets/img/path.jpg" class="image-responsive img-shape">
+           </div>
+           <div id="username-box" class="col-md-8 offset-md-2 text-left">
+            <p> User: Tori </p>
+           </div>
+           <div id="location-box" class="col-md-8 offset-md-2 text-left">
+            <p> Location: In the Sky</p>
+           </div>
+            <div id="rating-box" class="col-md-8 offset-md-2 text-left">
+            <p> Rating: [ 5 ] 🟊 </p>
+           </div>
+
+
+          </div>  
+        </div>  
+
+      </div>  
       <!--FIN CONTAINER TWO--> `);
       },2000);
       var displayName = user.displayName;

@@ -86,54 +86,6 @@ var register = (function() {
       verify();
       $("#regismodal").modal("toggle");
       $("#loader").fadeIn();
-      $("body").append(`<!--INICIO CONTAINER TWO--> 
-    <div class="container-fluid" id="two">
-        <!--CARROUSEL TOP DE IMAGENES-->
-     
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-        
-            <div class="carousel-inner">
-            
-                <div id="img1" class="carousel-item active carrousel-box" >
-                <img  class="d-block w-100" src="assets/img/Lets-meet.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                        <h5>Lets Meet! 🟊</h5>
-                        <p>Check our next meeting event. It could be a great chance to exchange with pro fickers and get their advices, learn and meet people with your same interests. <a href="#">Read more...</a></p>
-                        </div>
-                </div>
-            
-                <div id="img2" class="carousel-item  carrousel-box">
-                <img  class="d-block w-100" src="assets/img/texture-1362879_1920.jpg" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Inspire</h5>
-                        <p>Sharing your tips with beginners is a great way to upgrade your own writting level with your feedback, don't lose the opportunity! </p>
-                    </div>
-                </div>
-            
-                <div id="img3" class="carousel-item  carrousel-box">
-                <img  class="d-block w-100" src="assets/img/japanese-garden-2898777_1920.jpg" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                        <h5>Highlights</h5>
-                        <p>"Some beautiful paths can't be discovered, without getting lost" - Erol Ozan</p>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            </div>
-        
-<!--FIN CARROUSEL DE IMAGENES-->`)
       setTimeout(function(){
         $("#loader").fadeOut();
       },3000);
@@ -168,18 +120,25 @@ var getRealTimeUpdates = (function() {
 });
 
 var posting = (function() {
-  var counter = 0;
   var user = firebase.auth().currentUser.displayName;
   var textAreaPost = $("#wannabecomment");
   var postContainer = $("#comment-cont");
   var postBtn = $("#comm-btn");
-  var docRef = firestore.doc("users/"+user+"/post"+counter+"/"+counter);
+  var docRef = firestore.doc("users/"+user);
+  docRef.get().then(function(doc) {
+    if (doc.exists) {
+        console.log("Document data:", doc.data());
+    } else {
+        console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
   var post = textAreaPost.val();
     docRef.set({
       when: new Date(), 
       what: post
     }, {merge:true}).then(function() {
-      counter++;
       console.log("Saved");
     }).catch(function(error) {
       console.log(error);
